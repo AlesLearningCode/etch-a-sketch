@@ -1,31 +1,35 @@
 const content = document.querySelector(`#container`);
-let gridRow;
+const btn = document.querySelector(`button`)
+
+
 
 function createGrid(size){
-content.style.width = 5 * size + "px";
-for(let i = 0; i < (size * size); i++){
-    gridRow = document.createElement(`div`)
+    for(let i = 0; i < (size * size); i++){
+    gridRow = document.createElement(`div`);
     content.appendChild(gridRow);
-    gridRow.classList.add(`row`)
+    gridRow.classList.add(`row`)  
+    gridRow.style.height = `${960 / size}px`;  
+    gridRow.style.width = `${960 / size}px`;   
 }
 }
 
-createGrid(50)
+
+
+/*btn.addEventListener(`click`, () =>{
+    btn = createGrid(prompt(`How big do you want your grid?`))
+
+})*/
 
 
 
     let highlight = document.querySelectorAll(".row")
     highlight.forEach((i) => {
-        i.addEventListener('mouseover', () =>{
-            i.setAttribute("style", "background-color:white;")
+        i.addEventListener('click mouseover', () =>{
+            i.style.backgroundColor="white";
         });
         i.addEventListener('mouseout', () =>{
-            i.setAttribute("style", "background-color:green;")
-        });
+            i.style.backgroundColor="blue";
+        }); 
     });
-
-
-  
-
 
     
