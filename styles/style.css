@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-boxs;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px black solid;
+    margin-top: 40px;
+}
+.row{
+    border: black 1px solid ;
+    width: 10px;
+    height: 10px;
+}
