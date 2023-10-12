@@ -2,7 +2,6 @@ const content = document.querySelector(`#container`);
 const btn = document.querySelector(`button`)
 let size;
 let clicked;
-let secondClick
 
     function createGrid(size){
         for(let i = 0; i < (size * size); i++){
@@ -14,9 +13,14 @@ let secondClick
     }
 }
     
+    btn.addEventListener(`click`, () => {
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
     
+    })    
 
-    btn.addEventListener(`dblclick`, () =>{
+    btn.addEventListener(`click`, () =>{
         size = prompt("Enter a size of grid")
         createGrid(size)
         let pen = document.querySelectorAll(".row");
@@ -40,10 +44,3 @@ let secondClick
             });    
         });
     });
-
-
-    btn.addEventListener(`click`, () => {
-        while (container.firstChild) {
-            container.removeChild(container.firstChild);
-        }
-    })    
