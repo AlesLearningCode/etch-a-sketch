@@ -5,20 +5,25 @@
 }
 body{
     display: flex;
-    justify-content: center;
+    justify-content:flex-start;
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    background-color: red;
+
 }
 #container{
     display: flex;
     flex-wrap: wrap;
     width: 960px;
     height: 960px;
+    margin: 40px;
+    background-color: white;
 }
 .row{
-    border: 1px solid black;
+    border: 0.1px solid black;
 }
 button{
     margin-bottom: 50px;
+    margin-top: 80px;
 }
