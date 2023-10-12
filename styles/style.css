@@ -8,6 +8,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
 }
 #container{
     display: flex;
@@ -17,4 +18,7 @@ body{
 }
 .row{
     border: 1px solid black;
+}
+button{
+    margin-bottom: 50px;
 }

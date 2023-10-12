@@ -1,9 +1,9 @@
 const content = document.querySelector(`#container`);
 const btn = document.querySelector(`button`)
+let size;
+let clicked;
 
-
-
-function createGrid(size){
+    function createGrid(size){
     for(let i = 0; i < (size * size); i++){
     gridRow = document.createElement(`div`);
     content.appendChild(gridRow);
@@ -12,24 +12,26 @@ function createGrid(size){
     gridRow.style.width = `${960 / size}px`;   
 }
 }
+    
+    
 
-
-
-/*btn.addEventListener(`click`, () =>{
-    btn = createGrid(prompt(`How big do you want your grid?`))
-
-})*/
-
-
-
-    let highlight = document.querySelectorAll(".row")
-    highlight.forEach((i) => {
-        i.addEventListener('click mouseover', () =>{
-            i.style.backgroundColor="white";
-        });
-        i.addEventListener('mouseout', () =>{
-            i.style.backgroundColor="blue";
-        }); 
+    btn.addEventListener(`click`, () =>{
+        size = prompt("Enter a size of grid")
+        createGrid(size)
+        let pen = document.querySelectorAll(".row")
+        pen.forEach((i) => {
+        i.addEventListener('mousedown', () =>{
+            i.style.backgroundColor="green"
+            clicked = true;
+        });   
+        i.addEventListener(`mouseup`, () => {
+            clicked = false;
+        })
+        i.addEventListener(`mouseover`, () =>{
+            if(clicked === true){
+            i.style.backgroundColor="green"
+            }
+        });    
     });
-
+    });
     
