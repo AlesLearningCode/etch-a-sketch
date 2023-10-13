@@ -2,7 +2,7 @@ const content = document.querySelector(`#container`);
 const btn = document.querySelector(`button`)
 let size;
 let trailStart;
-
+createGrid(16)
     function createGrid(size){
         for(let i = 0; i < (size * size); i++){
             gridRow = document.createElement(`div`);
@@ -20,8 +20,6 @@ let trailStart;
     }
 })    
 
-
-
     btn.addEventListener(`click`, () =>{
         size = prompt("Enter a grid dimensions that's in range 0 to 100")
         while(size >= 100 || size < 0){
@@ -29,10 +27,11 @@ let trailStart;
     }
         createGrid(size);
         let pen = document.querySelectorAll(".row");
-        console.log(pen)
         pen.forEach((i) => {
             i.addEventListener('mousedown', () =>{
-                i.style.backgroundColor="black"
+                randomColor = [`${Math.floor(Math.random()*255)}`,
+                `${Math.floor(Math.random()*255)}`, `${Math.floor(Math.random()*255)}`]
+                i.style.backgroundColor= `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`
                 trailStart = true;
             });   
             i.addEventListener(`mouseup`, () => {
@@ -40,9 +39,28 @@ let trailStart;
             })
             i.addEventListener(`mouseover`, () =>{
                 if(trailStart === true){
-                i.style.backgroundColor="black"
+                i.style.backgroundColor= `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`
                 }
             });    
         });
-});
+    });
+
+    let pen = document.querySelectorAll(".row");
+        pen.forEach((i) => {
+            i.addEventListener('mousedown', () => {
+                randomColor = [`${Math.floor(Math.random()*255)}`,
+                `${Math.floor(Math.random()*255)}`, `${Math.floor(Math.random()*255)}`]
+                i.style.backgroundColor= `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`
+                trailStart = true;
+            });   
+            i.addEventListener(`mouseup`, () => {
+                trailStart = false;
+            })
+            i.addEventListener(`mouseover`, () =>{
+                if(trailStart === true){
+                i.style.backgroundColor= `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`
+                }
+            });    
+        });
+
 
